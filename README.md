@@ -29,10 +29,10 @@ Work through the series of prompts available in [`lib/`](lib/):
 - [Arrays](lib/arrays.js)
 - [Functions](lib/functions.js)
 - [Objects](lib/objects.js)
-- [Object Oriented Programming](lib/oop.js)
 - [Higher Order Functions](lib/hof.js)
 
 ## Hungry for More?
+
 Check out [this repo](https://git.generalassemb.ly/seir-622/checkpoint-javascript).
 
 ## Plagiarism
