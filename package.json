@@ -1,0 +1,24 @@
+{
+  "name": "unit-1-js-checkpoint",
+  "version": "1.0.0",
+  "description": "Unit 1 JavaScript Checkpoint HW",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.generalassemb.ly:SEIR-201/unit-1-js-checkpoint.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.0",
+    "mocha": "^8.2.1"
+  }
+}
