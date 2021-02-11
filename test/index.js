@@ -28,6 +28,17 @@ const {
 	prompt3,
 } = require('../lib/conditionals');
 
+const {
+	helloWorld,
+	printMessage,
+	greetMe,
+	printCool,
+	calculateCube,
+	getUpperCaseString,
+	reverseSentence,
+	formatPhoneNumber,
+} = require('../lib/functions');
+
 describe('arrays.js', () => {
 	it('Prompt 01: people should be an array that contains three string elements', () => {
 		expect(people).to.be.an('array');
@@ -175,5 +186,42 @@ describe('conditionals.js', () => {
 				.to.be.a('string')
 				.that.equals("Sorry, you're too young for now");
 		}
+	});
+});
+
+describe('functions.js', () => {
+	it("Prompt 01: helloWorld should return a string with value 'hello world'", () => {
+		expect(helloWorld()).to.equal('Hello World');
+	});
+
+	it('Prompt02: printMessage should return its argument', () => {
+		expect(printMessage('message')).to.equal('message');
+		expect(printMessage(1234)).to.equal(1234);
+	});
+
+	it('Prompt 03: greetMe should return a greeting', () => {
+		expect(greetMe('Jimmy')).to.equal('Hello Jimmy');
+	});
+
+	it('Prompt 04: printCool should return an is cool statement', () => {
+		expect(printCool('Gordon')).to.equal('Gordon is cool.');
+	});
+
+	it('Prompt 05: calculateCube should return the cubed number', () => {
+		expect(calculateCube(3)).to.equal(27);
+	});
+
+	it('Prompt 06: getUpperCaseString should return an uppercased string', () => {
+		expect(getUpperCaseString('hasta la vista')).to.equal('HASTA LA VISTA');
+	});
+
+	it('Prompt 07: reverseSentence should return words in reverse order', () => {
+		expect(reverseSentence('every day is a winding road')).to.equal(
+			'road winding a is day every'
+		);
+	});
+
+	it('Prompt 08: formatPhoneNumber should format the number into a stringified phone number', () => {
+		expect(formatPhoneNumber(5555259955)).to.equal('(555) 525-9955');
 	});
 });
