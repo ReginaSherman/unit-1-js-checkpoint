@@ -19,6 +19,15 @@ const {
 	favoriteFoods,
 } = require('../lib/arrays');
 
+const {
+	numBelow10,
+	numBelow100,
+	age,
+	prompt1,
+	prompt2,
+	prompt3,
+} = require('../lib/conditionals');
+
 describe('arrays.js', () => {
 	it('Prompt 01: people should be an array that contains three string elements', () => {
 		expect(people).to.be.an('array');
@@ -135,5 +144,36 @@ describe('arrays.js', () => {
 		expect(foods.filter((food) => food.length > 6)).to.deep.equal(
 			favoriteFoods
 		);
+	});
+});
+
+describe('conditionals.js', () => {
+	it('Prompt 01: numBelow100 should be a number', () => {
+		expect(numBelow100).to.be.a('number');
+		if (numBelow100 > 50) {
+			expect(prompt1()).to.be.a('string').that.equals("That's a big number!");
+		}
+	});
+
+	it('Prompt 02: numBelow10 should be a number', () => {
+		expect(numBelow10).to.be.a('number');
+		if (numBelow10 < 5) {
+			expect(prompt2()).to.be.a('string').that.equals('small number');
+		} else if (numBelow10 > 5) {
+			expect(prompt2()).to.be.a('string').that.equals('big number');
+		} else {
+			expect(prompt2()).to.be.a('string').that.equals('monkey');
+		}
+	});
+
+	it('Prompt 03: age should be a number', () => {
+		expect(age).to.be.a('number');
+		if (age > 16) {
+			expect(prompt3()).to.be.a('string').that.equals('Here are the keys');
+		} else {
+			expect(prompt3())
+				.to.be.a('string')
+				.that.equals("Sorry, you're too young for now");
+		}
 	});
 });
