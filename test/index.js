@@ -83,6 +83,18 @@ const {
 	inception,
 } = require('../lib/objects');
 
+const {
+	firstName,
+	lastName,
+	fullName,
+	tongueTwister,
+	includesFox,
+	leslie,
+	newString,
+	toArray,
+	charArray,
+} = require('../lib/strings');
+
 describe('arrays.js', () => {
 	it('Prompt 01: people should be an array that contains three string elements', () => {
 		expect(people).to.be.an('array');
@@ -766,5 +778,39 @@ describe('objects.js', () => {
 			inception.reality.dreamLayer1.dreamLayer2.dreamLayer3.dreamLayer4
 				.dreamLayer5.dreamLayer6.limbo
 		).to.equal(null);
+	});
+});
+
+describe('strings.js', () => {
+	it('prompt01: string variables called firstName, lastName, and fullName', () => {
+		expect(firstName).to.be.a('string');
+		expect(lastName).to.be.a('string');
+		expect(fullName).to.be.a('string');
+		expect(fullName).to.equal(`${firstName} ${lastName}`);
+	});
+
+	it('prompt02: tongueTwister should be the tongue twister', () => {
+		expect(tongueTwister)
+			.to.be.a('string')
+			.that.equals('She sells sea shells by the sea shore');
+	});
+
+	it('prompt03: check if includesFox is true', () => {
+		expect(includesFox).to.be.true;
+	});
+
+	it('prompt04: leslie should have Leslie Knope', () => {
+		expect(leslie).to.equal(
+			'The best character on Parks and Rec is Leslie Knope - hands down!'
+		);
+	});
+
+	it('prompt05: newString should be the concatenated result of the other strings', () => {
+		expect(newString).to.equal('eeny, meeny, miny, moe');
+	});
+
+	it('prompt06: should split the string into an array of characters', () => {
+		expect(charArray).to.be.an('array');
+		expect(charArray).to.deep.equal(toArray.split(''));
 	});
 });
