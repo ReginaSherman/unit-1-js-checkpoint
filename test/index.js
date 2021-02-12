@@ -95,6 +95,13 @@ const {
 	charArray,
 } = require('../lib/strings');
 
+const {
+	message,
+	name,
+	favoriteFood,
+	untypedNumber,
+} = require('../lib/variables');
+
 describe('arrays.js', () => {
 	it('Prompt 01: people should be an array that contains three string elements', () => {
 		expect(people).to.be.an('array');
@@ -812,5 +819,25 @@ describe('strings.js', () => {
 	it('prompt06: should split the string into an array of characters', () => {
 		expect(charArray).to.be.an('array');
 		expect(charArray).to.deep.equal(toArray.split(''));
+	});
+});
+
+describe('variables.js', () => {
+	it('prompt01: message should equal "Hello World"', () => {
+		expect(message).to.equal('Hello World');
+	});
+
+	it('prompt02: name should be a string', () => {
+		expect(name).to.be.a('string');
+		expect(name.length).to.be.greaterThan(0);
+	});
+
+	it('prompt03: favoriteFood should be a string', () => {
+		expect(favoriteFood).to.be.a('string');
+		expect(favoriteFood.length).to.be.greaterThan(0);
+	});
+
+	it('prompt04: untypedNumber should be a boolean', () => {
+		expect(untypedNumber).to.be.a('boolean');
 	});
 });
