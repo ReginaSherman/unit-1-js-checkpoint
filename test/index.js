@@ -1,5 +1,9 @@
+// dependencies
 const expect = require('chai').expect;
+require('sinon-chai');
+require('mocha-sinon');
 
+// import scripts to test
 const {
 	people,
 	countries,
@@ -52,6 +56,17 @@ const {
 	totalGross,
 	bondActorsCount,
 } = require('../lib/hof');
+
+const {
+	prompt01,
+	prompt02,
+	prompt03,
+	prompt04,
+	prompt05,
+	prompt06,
+	prompt07,
+	prompt08,
+} = require('../lib/loops.js');
 
 describe('arrays.js', () => {
 	it('Prompt 01: people should be an array that contains three string elements', () => {
@@ -517,5 +532,167 @@ describe('hof.js', () => {
 		}, {});
 		expect(bondActorsCount).to.be.an('object');
 		expect(bondActorsCount).to.deep.equal(expectedResult);
+	});
+});
+
+describe('loops.js: prompt01', () => {
+	beforeEach(function () {
+		this.sinon.stub(console, 'log');
+		prompt01();
+	});
+
+	it('prompt01: loop that prints each number from 0-10 (inclusive)', () => {
+		expect(console.log.calledWith(0)).to.be.true;
+		expect(console.log.calledWith(1)).to.be.true;
+		expect(console.log.calledWith(2)).to.be.true;
+		expect(console.log.calledWith(3)).to.be.true;
+		expect(console.log.calledWith(4)).to.be.true;
+		expect(console.log.calledWith(5)).to.be.true;
+		expect(console.log.calledWith(6)).to.be.true;
+		expect(console.log.calledWith(7)).to.be.true;
+		expect(console.log.calledWith(8)).to.be.true;
+		expect(console.log.calledWith(9)).to.be.true;
+		expect(console.log.calledWith(10)).to.be.true;
+		expect(console.log.calledWith(11)).to.be.false;
+	});
+});
+
+describe('loops.js: prompt02', () => {
+	beforeEach(function () {
+		this.sinon.stub(console, 'log');
+		prompt02();
+	});
+	it('prompt02: loop that prints numbers from 10-0 (inclusive)', () => {
+		expect(console.log.calledWith(-1)).to.be.false;
+		expect(console.log.calledWith(10)).to.be.true;
+		expect(console.log.calledWith(0)).to.be.true;
+		expect(console.log.calledWith(1)).to.be.true;
+		expect(console.log.calledWith(2)).to.be.true;
+		expect(console.log.calledWith(3)).to.be.true;
+		expect(console.log.calledWith(4)).to.be.true;
+		expect(console.log.calledWith(5)).to.be.true;
+		expect(console.log.calledWith(6)).to.be.true;
+		expect(console.log.calledWith(7)).to.be.true;
+		expect(console.log.calledWith(8)).to.be.true;
+		expect(console.log.calledWith(9)).to.be.true;
+	});
+});
+
+describe('loops.js: prompt03', () => {
+	beforeEach(function () {
+		this.sinon.stub(console, 'log');
+		prompt03();
+	});
+
+	it('prompt03: loop that prints even numbers between 0 and 50 (non-inclusive', () => {
+		expect(console.log.calledWith(-1)).to.be.false;
+		expect(console.log.calledWith(2)).to.be.true;
+		expect(console.log.calledWith(3)).to.be.false;
+		expect(console.log.calledWith(5)).to.be.false;
+		expect(console.log.calledWith(6)).to.be.true;
+		expect(console.log.calledWith(7)).to.be.false;
+		expect(console.log.calledWith(8)).to.be.true;
+		expect(console.log.calledWith(9)).to.be.false;
+		expect(console.log.calledWith(10)).to.be.true;
+		expect(console.log.calledWith(22)).to.be.true;
+		expect(console.log.calledWith(28)).to.be.true;
+		expect(console.log.calledWith(48)).to.be.true;
+		expect(console.log.calledWith(50)).to.be.false;
+	});
+});
+
+describe('loops.js: prompt04', () => {
+	beforeEach(function () {
+		this.sinon.stub(console, 'log');
+		prompt04();
+	});
+
+	it('prompt04: loop that prints odd numbers between 0 and 50 (non-inclusive)', () => {
+		expect(console.log.calledWith(1)).to.be.true;
+		expect(console.log.calledWith(2)).to.be.false;
+		expect(console.log.calledWith(5)).to.be.true;
+		expect(console.log.calledWith(6)).to.be.false;
+		expect(console.log.calledWith(7)).to.be.true;
+		expect(console.log.calledWith(8)).to.be.false;
+		expect(console.log.calledWith(9)).to.be.true;
+		expect(console.log.calledWith(10)).to.be.false;
+		expect(console.log.calledWith(11)).to.be.true;
+		expect(console.log.calledWith(23)).to.be.true;
+		expect(console.log.calledWith(27)).to.be.true;
+		expect(console.log.calledWith(49)).to.be.true;
+		expect(console.log.calledWith(50)).to.be.false;
+		expect(console.log.calledWith(51)).to.be.false;
+	});
+});
+
+describe('loops.js: prompt05', () => {
+	beforeEach(function () {
+		this.sinon.stub(console, 'log');
+		prompt05();
+	});
+
+	it('prompt05: print numbers between 50 and 100 (non-inclusive)', () => {
+		expect(console.log.calledWith(50)).to.be.false;
+		expect(console.log.calledWith(51)).to.be.true;
+		expect(console.log.calledWith(62)).to.be.true;
+		expect(console.log.calledWith(73)).to.be.true;
+		expect(console.log.calledWith(99)).to.be.true;
+		expect(console.log.calledWith(100)).to.be.false;
+	});
+});
+
+describe('loops.js: prompt06', () => {
+	beforeEach(function () {
+		this.sinon.stub(console, 'log');
+		prompt06();
+	});
+
+	it('prompt06: print upperCasedNinjaTurtles', () => {
+		const ninjaTurtles = ['Donatello', 'Leonardo', 'Raphael', 'Michelangelo'];
+		ninjaTurtles.forEach((turtle) => {
+			expect(console.log.calledWith(turtle.toUpperCase())).to.be.true;
+		});
+	});
+});
+
+describe('loops.js: prompt 07', () => {
+	beforeEach(function () {
+		this.sinon.stub(console, 'log');
+		prompt07();
+	});
+
+	it('should print the numbers from twoDArray1', () => {
+		const twoDArray1 = [
+			[1, 2, 3],
+			[4, 5, 6],
+			[7, 8, 9],
+		];
+
+		twoDArray1.forEach((arr) => {
+			arr.forEach((num) => {
+				expect(console.log.calledWith(num)).to.be.true;
+			});
+		});
+	});
+});
+
+describe('loops.js: prompt 08', () => {
+	beforeEach(function () {
+		this.sinon.stub(console, 'log');
+		prompt08();
+	});
+
+	it('should print the numbers from twoDArray', () => {
+		const twoDArray = [
+			[9, 8, 7],
+			[6, 5, 4],
+			[3, 2, 1],
+		];
+
+		twoDArray.forEach((arr) => {
+			arr.forEach((num) => {
+				expect(console.log.calledWith(num)).to.be.true;
+			});
+		});
 	});
 });
