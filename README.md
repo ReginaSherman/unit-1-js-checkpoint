@@ -37,7 +37,7 @@ Work through the series of prompts available in [`lib/`](lib/):
 
 ## Tests
 
-Want to see if your tests pass? Run `npm install` from this directory and then `npm test` to see the output of your code against the grading tests. Make changes as needed and rerun the tests to see if they pass.
+Check to see if your tests pass. Run `npm install` from this directory and then `npm test` to see the output of your code against the grading tests. Make changes as needed and rerun the tests to see if they pass.
 
 ## Plagiarism
 
