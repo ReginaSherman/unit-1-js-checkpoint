@@ -13,6 +13,7 @@ Use this repository to review the JavaScript covered in the course thus far!
 ## Instructions
 
 1. Fork and clone this repository.
+1. Check out a `dev` branch.
 1. Change into the new directory.
 1. Fulfill the listed requirements.
 1. Submit your work via a PR on this repository.
