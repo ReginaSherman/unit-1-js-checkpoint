@@ -39,6 +39,20 @@ const {
 	formatPhoneNumber,
 } = require('../lib/functions');
 
+const {
+	beautifulPlanets,
+	noRingSystem,
+	threeOrMoreMoons,
+	sortedByNumberOfMoons,
+	bondTitles,
+	grossRevenue,
+	bondYears,
+	bondMoviesSortedByYear,
+	oddBonds,
+	totalGross,
+	bondActorsCount,
+} = require('../lib/hof');
+
 describe('arrays.js', () => {
 	it('Prompt 01: people should be an array that contains three string elements', () => {
 		expect(people).to.be.an('array');
@@ -223,5 +237,285 @@ describe('functions.js', () => {
 
 	it('Prompt 08: formatPhoneNumber should format the number into a stringified phone number', () => {
 		expect(formatPhoneNumber(5555259955)).to.equal('(555) 525-9955');
+	});
+});
+
+describe('hof.js', () => {
+	const solarSystem = [
+		{ name: 'Mercury', ringSystem: false, moons: [] },
+		{ name: 'Venus', ringSystem: false, moons: [] },
+		{ name: 'Earth', ringSystem: false, moons: ['The Moon'] },
+		{ name: 'Mars', ringSystem: false, moons: ['Phobos', 'Deimos'] },
+		{
+			name: 'Jupiter',
+			ringSystem: true,
+			moons: ['Europa', 'Ganymede', 'Io', 'Callisto'],
+		},
+		{
+			name: 'Saturn',
+			ringSystem: true,
+			moons: ['Titan', 'Enceladus', 'Rhea', 'Mimas'],
+		},
+		{
+			name: 'Uranus',
+			ringSystem: true,
+			moons: ['Miranda', 'Titania', 'Ariel', 'Umbriel'],
+		},
+		{ name: 'Neptune', ringSystem: true, moons: ['Triton', 'Nereid'] },
+	];
+
+	it('Prompt 1A: beautifulPlanets should be an array of strings', () => {
+		expect(beautifulPlanets).to.be.an('array');
+		expect(beautifulPlanets.length).to.equal(solarSystem.length);
+		beautifulPlanets.forEach((planet) => {
+			expect(planet).to.be.a('string');
+		});
+		expect(beautifulPlanets).to.deep.equal(
+			solarSystem.map((planet) => `${planet.name} is beautiful`)
+		);
+	});
+
+	it('Prompt 1B: noRingSystem should be an array of planet objects with no ring system', () => {
+		const expectedResult = solarSystem.filter((planet) => !planet.ringSystem);
+		expect(noRingSystem).to.be.an('array');
+		expect(noRingSystem.length).to.equal(expectedResult.length);
+		noRingSystem.forEach((planet) => {
+			expect(planet).to.be.an('object');
+		});
+		expect(noRingSystem).to.deep.equal(expectedResult);
+	});
+
+	it('Prompt 1C: threeOrMoreMoons should be an array of planet objects with 3 or more moons', () => {
+		const expectedResult = solarSystem.filter((planet) => planet.moons >= 3);
+		expect(threeOrMoreMoons).to.be.an('array');
+		expect(threeOrMoreMoons.length).to.equal(expectedResult.length);
+		threeOrMoreMoons.forEach((planet) => {
+			expect(planet).to.be.an('object');
+		});
+		expect(threeOrMoreMoons).to.deep.equal(expectedResult);
+	});
+
+	it('Prompt 1D: sortedByNumberOfMoons should be an array of planet objects sorted in ascending order of number of moons', () => {
+		const expectedResult = solarSystem.sort(
+			(a, b) => a.moons.length - b.moons.length
+		);
+		expect(sortedByNumberOfMoons).to.be.an('array');
+		expect(sortedByNumberOfMoons.length).to.equal(expectedResult.length);
+		sortedByNumberOfMoons.forEach((planet) => {
+			expect(planet).to.be.an('object');
+		});
+		expect(sortedByNumberOfMoons).to.deep.equal(expectedResult);
+	});
+
+	const bondFilms = [
+		{
+			title: 'Skyfall',
+			year: 2012,
+			actor: 'Daniel Craig',
+			gross: '$1,108,561,008',
+		},
+		{
+			title: 'Thunderball',
+			year: 1965,
+			actor: 'Sean Connery',
+			gross: '$1,014,941,117',
+		},
+		{
+			title: 'Goldfinger',
+			year: 1964,
+			actor: 'Sean Connery',
+			gross: '$912,257,512',
+		},
+		{
+			title: 'Live and Let Die',
+			year: 1973,
+			actor: 'Roger Moore',
+			gross: '$825,110,761',
+		},
+		{
+			title: 'You Only Live Twice',
+			year: 1967,
+			actor: 'Sean Connery',
+			gross: '$756,544,419',
+		},
+		{
+			title: 'The Spy Who Loved Me',
+			year: 1977,
+			actor: 'Roger Moore',
+			gross: '$692,713,752',
+		},
+		{
+			title: 'Casino Royale',
+			year: 2006,
+			actor: 'Daniel Craig',
+			gross: '$669,789,482',
+		},
+		{
+			title: 'Moonraker',
+			year: 1979,
+			actor: 'Roger Moore',
+			gross: '$655,872,400',
+		},
+		{
+			title: 'Diamonds Are Forever',
+			year: 1971,
+			actor: 'Sean Connery',
+			gross: '$648,514,469',
+		},
+		{
+			title: 'Quantum of Solace',
+			year: 2008,
+			actor: 'Daniel Craig',
+			gross: '$622,246,378',
+		},
+		{
+			title: 'From Russia with Love',
+			year: 1963,
+			actor: 'Sean Connery',
+			gross: '$576,277,964',
+		},
+		{
+			title: 'Die Another Day',
+			year: 2002,
+			actor: 'Pierce Brosnan',
+			gross: '$543,639,638',
+		},
+		{
+			title: 'Goldeneye',
+			year: 1995,
+			actor: 'Pierce Brosnan',
+			gross: '$529,548,711',
+		},
+		{
+			title: "On Her Majesty's Secret Service",
+			year: 1969,
+			actor: 'George Lazenby',
+			gross: '$505,899,782',
+		},
+		{
+			title: 'The World is Not Enough',
+			year: 1999,
+			actor: 'Pierce Brosnan',
+			gross: '$491,617,153',
+		},
+		{
+			title: 'For Your Eyes Only',
+			year: 1981,
+			actor: 'Roger Moore',
+			gross: '$486,468,881',
+		},
+		{
+			title: 'Tomorrow Never Dies',
+			year: 1997,
+			actor: 'Pierce Brosnan',
+			gross: '$478,946,402',
+		},
+		{
+			title: 'The Man with the Golden Gun',
+			year: 1974,
+			actor: 'Roger Moore',
+			gross: '$448,249,281',
+		},
+		{
+			title: 'Dr. No',
+			year: 1962,
+			actor: 'Sean Connery',
+			gross: '$440,759,072',
+		},
+		{
+			title: 'Octopussy',
+			year: 1983,
+			actor: 'Roger Moore',
+			gross: '$426,244,352',
+		},
+		{
+			title: 'The Living Daylights',
+			year: 1987,
+			actor: 'Timothy Dalton',
+			gross: '$381,088,866',
+		},
+		{
+			title: 'A View to a Kill',
+			year: 1985,
+			actor: 'Roger Moore',
+			gross: '$321,172,633',
+		},
+		{
+			title: 'License to Kill',
+			year: 1989,
+			actor: 'Timothy Dalton',
+			gross: '$285,157,191',
+		},
+	];
+
+	it('Prompt 2A: bondTitles should be an array of strings of the film titles', () => {
+		const expectedResult = bondFilms.map((film) => film.title);
+		expect(bondTitles).to.be.an('array');
+		expect(bondTitles.length).to.equal(bondFilms.length);
+		bondTitles.forEach((title) => {
+			expect(title).to.be.a('string');
+		});
+		expect(bondTitles).to.deep.equal(expectedResult);
+	});
+
+	it('Prompt 2B: grossRevenue should be an array of strings of the film grosses', () => {
+		const expectedResult = bondFilms.map((film) => film.gross);
+		expect(grossRevenue).to.be.an('array');
+		expect(grossRevenue.length).to.equal(bondFilms.length);
+		grossRevenue.forEach((revenue) => {
+			expect(revenue).to.be.a('string');
+		});
+		expect(grossRevenue).to.deep.equal(expectedResult);
+	});
+
+	it('Prompt 2C: bondYears should be an array with the years of the films', () => {
+		const expectedResult = bondFilms.map((film) => film.year);
+		expect(bondYears).to.be.an('array');
+		expect(bondYears.length).to.equal(bondFilms.length);
+		bondYears.forEach((year) => {
+			expect(year).to.be.a('number');
+		});
+		expect(bondYears).to.deep.equal(expectedResult);
+	});
+
+	it('Prompt 2D: bondMoviesSortedByYear should be an array of film objects sorted by year', () => {
+		const expectedResult = bondFilms.sort((a, b) => a.year - b.year);
+		expect(bondMoviesSortedByYear).to.be.an('array');
+		expect(bondMoviesSortedByYear.length).to.equal(bondFilms.length);
+		bondMoviesSortedByYear.forEach((film) => {
+			expect(film).to.be.an('object');
+		});
+		expect(bondMoviesSortedByYear).to.deep.equal(expectedResult);
+	});
+
+	it('Prompt 2E: oddBonds should be an array of film objects with odd-numbered years', () => {
+		const expectedResult = bondFilms.filter((film) => film.year % 2);
+		expect(oddBonds).to.be.an('array');
+		oddBonds.forEach((film) => {
+			expect(film).to.be.an('object');
+		});
+		expect(oddBonds).to.deep.equal(expectedResult);
+	});
+
+	it('Prompt 2F: totalGross should return a number that is the cumulative gross', () => {
+		const expectedResult = bondFilms.reduce(
+			(sum, curVal) => sum + parseInt(curVal.gross.slice(1).replace(/,/g, '')),
+			0
+		);
+		expect(totalGross).to.be.a('number');
+		expect(totalGross).to.equal(expectedResult);
+	});
+
+	it('Prompt 2G: bondActorsCount should return an object with each actor and their number of appearances', () => {
+		const expectedResult = bondFilms.reduce((acc, curVal) => {
+			if (!acc[curVal.actor]) {
+				acc[curVal.actor] = 1;
+			} else {
+				acc[curVal.actor]++;
+			}
+			return acc;
+		}, {});
+		expect(bondActorsCount).to.be.an('object');
+		expect(bondActorsCount).to.deep.equal(expectedResult);
 	});
 });
