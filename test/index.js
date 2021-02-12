@@ -68,6 +68,21 @@ const {
 	prompt08,
 } = require('../lib/loops.js');
 
+const {
+	person,
+	movie,
+	monster,
+	monsterName,
+	computer,
+	crazyObject,
+	burningMouth,
+	prettyPrettayGood,
+	swearing,
+	chiknTeriyakiBoi,
+	funkhauser,
+	inception,
+} = require('../lib/objects');
+
 describe('arrays.js', () => {
 	it('Prompt 01: people should be an array that contains three string elements', () => {
 		expect(people).to.be.an('array');
@@ -694,5 +709,62 @@ describe('loops.js: prompt 08', () => {
 				expect(console.log.calledWith(num)).to.be.true;
 			});
 		});
+	});
+});
+
+describe('objects.js', () => {
+	it('prompt01: person object should have name, age, and city properties', () => {
+		expect(person.hasOwnProperty('name')).to.be.true;
+		expect(person.hasOwnProperty('age')).to.be.true;
+		expect(person.hasOwnProperty('city')).to.be.true;
+	});
+
+	it('prompt02: movie object should have title, genre, length, and cast properties', () => {
+		expect(movie.title).to.be.a('string');
+		expect(movie.genre).to.be.a('string');
+		expect(movie.length).to.be.a('number');
+		expect(movie.cast).to.be.an('array');
+		expect(movie.cast.length).to.be.greaterThan(0);
+		movie.cast.forEach((actor) => {
+			expect(actor).to.be.a('string');
+		});
+	});
+
+	it("prompt03: monster object's name should be saved and properties should be changed according to prompt", () => {
+		expect(monsterName).to.equal(monster.name);
+		expect(monster.type).to.equal('creature');
+		expect(monsterName).to.equal(monster.name);
+		expect(monster.hasOwnProperty('age')).to.be.true;
+		expect(monster.age).to.equal(6);
+	});
+
+	it('prompt04: computer object should have make, model, year and warranty-type properties as described', () => {
+		expect(computer.make).to.equal('Apple');
+		expect(computer.model).to.equal('MacBook');
+		expect(computer.year).to.equal(2017);
+		expect(computer['warranty-type']).to.equal('limited');
+	});
+
+	it('prompt05: crazyObject key values should be saved to variables and changed as described', () => {
+		expect(burningMouth).to.equal('omg my mouth is burning');
+		expect(prettyPrettayGood).to.equal('Pretty pretty prettayyyyy good');
+		expect(swearing).to.equal('Swearing at Larry and Jeff');
+		expect(chiknTeriyakiBoi).to.equal('Chicken Teriyaki Boyyyyyy');
+		expect(funkhauser).to.deep.equal({
+			name: 'funkhauser',
+			occupation: 'tv dude',
+		});
+		expect(
+			crazyObject.larry.quotes.includes(
+				"I'm trying to elevate small talk to medium talk"
+			)
+		).to.be.true;
+	});
+
+	it('prompt06: change the value of the limbo key to null in the inception object', () => {
+		expect(
+			inception.reality.dreamLayer1.dreamLayer2.dreamLayer3.dreamLayer4
+				.dreamLayer5.dreamLayer6.limbo
+		).to.equal(null);
 	});
 });
