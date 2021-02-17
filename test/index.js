@@ -335,7 +335,7 @@ describe('hof.js', () => {
 	});
 
 	it('Prompt 1C: threeOrMoreMoons should be an array of planet objects with 3 or more moons', () => {
-		const expectedResult = solarSystem.filter((planet) => planet.moons >= 3);
+		const expectedResult = solarSystem.filter((planet) => planet.moons.length >= 3);
 		expect(threeOrMoreMoons).to.be.an('array');
 		expect(threeOrMoreMoons.length).to.equal(expectedResult.length);
 		threeOrMoreMoons.forEach((planet) => {
