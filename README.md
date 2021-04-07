@@ -1,8 +1,8 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# Fundamentals Review
+# Unit 1 JavaScript CheckPoint
 
-Use this repository to review the material covered in the course thus far
+Use this repository to review the JavaScript covered in the course thus far!
 
 ## Prerequisites
 
@@ -13,10 +13,14 @@ Use this repository to review the material covered in the course thus far
 ## Instructions
 
 1. Fork and clone this repository.
+1. Check out a `dev` branch.
 1. Change into the new directory.
 1. Fulfill the listed requirements.
+1. Submit your work via a PR on this repository.
 
 The review prompts can all be found inside [`lib/`](lib/).
+
+Unless otherwise stated, homework is due the next class day by 10 am ET.
 
 ## Requirements
 
@@ -29,15 +33,15 @@ Work through the series of prompts available in [`lib/`](lib/):
 - [Arrays](lib/arrays.js)
 - [Functions](lib/functions.js)
 - [Objects](lib/objects.js)
-- [Object Oriented Programming](lib/oop.js)
 - [Higher Order Functions](lib/hof.js)
 
-## Hungry for More?
-Check out [this repo](https://git.generalassemb.ly/seir-622/checkpoint-javascript).
+## Tests
+
+Check to see if your tests pass. Run `npm install` from this directory and then `npm test` to see the output of your code against the grading tests. Make changes as needed and rerun the tests to see if they pass.
 
 ## Plagiarism
 
-Take a moment to refamiliarize yourself with the [Plagiarism policy](https://git.generalassemb.ly/DC-WDI/Administrative/blob/master/plagiarism.md). Plagiarized work will not be accepted.
+Take a moment to review the [Plagiarism policy](https://git.generalassemb.ly/DC-WDI/Administrative/blob/master/plagiarism.md). Plagiarized work will not be accepted.
 
 ## [License](LICENSE)
 
